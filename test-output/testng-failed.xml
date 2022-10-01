@@ -4,15 +4,15 @@
   <listeners>
     <listener class-name="Runner.NGTestListener"/>
   </listeners>
-  <test thread-count="5" name="Swiggy Landing Page(failed)">
+  <test thread-count="5" name="Swiggy Order Page Feature(failed)">
     <classes>
-      <class name="Runner.SwiggyRestaurantsPageRunner">
+      <class name="Runner.SwiggyOrdersPageRunner">
         <methods>
           <include name="setUpClass"/>
-          <include name="runScenario" invocation-numbers="2"/>
+          <include name="runScenario" invocation-numbers="0 2"/>
           <include name="tearDownClass"/>
         </methods>
-      </class> <!-- Runner.SwiggyRestaurantsPageRunner -->
+      </class> <!-- Runner.SwiggyOrdersPageRunner -->
     </classes>
-  </test> <!-- Swiggy Landing Page(failed) -->
+  </test> <!-- Swiggy Order Page Feature(failed) -->
 </suite> <!-- Failed suite [Suite] -->

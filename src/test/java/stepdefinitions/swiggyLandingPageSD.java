@@ -31,7 +31,7 @@ public class swiggyLandingPageSD extends utility.Base {
 
 	@Before
 	public static void setup(Scenario scenario) {
-		System.setProperty("webdriver.chrome.driver","./drivers/chromedriver104.exe");
+		System.setProperty("webdriver.chrome.driver","./drivers/chromedriver106.exe");
 		
 		scenarioDef= features.createNode(scenario.getName());
 		driver = new ChromeDriver();

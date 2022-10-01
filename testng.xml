@@ -10,8 +10,22 @@
 
   <test thread-count="5" name="Swiggy Landing Page">
     <classes>
-        <!--<class name="Runner.SwiggyLandingPageRunner"/>-->
-      <class name="Runner.SwiggyRestaurantsPageRunner"/>
+       <class name="Runner.SwiggyLandingPageRunner"/>
+      
+      
+    </classes>
+  </test>
+  <test thread-count="5" name="Swiggy Order Page Feature">
+    <classes>
+     
+        <class name="Runner.SwiggyRestaurantsPageRunner"/>
+      
+    </classes>
+  </test> 
+   <test thread-count="5" name="Swiggy Order Page Feature">
+    <classes>
+     
+       <class name="Runner.SwiggyOrdersPageRunner"/>
       
     </classes>
   </test> 

@@ -44,8 +44,10 @@ public class NGTestListener implements ITestListener {
 		// TODO Auto-generated method stub
 		log.info("Test Failed.");
 		/*features.log(Status.FAIL, result.getTestContext().getName()+"Test Failed");*/
-		features.fail(result.getThrowable());
 		scenarioDef.fail(result.getThrowable());
+		features.fail(result.getThrowable());
+		
+		features.log(Status.FAIL, result.getTestContext().getName()+"Test Failed");
 	}
 
 	@Override

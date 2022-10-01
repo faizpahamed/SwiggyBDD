@@ -21,6 +21,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.aventstack.extentreports.GherkinKeyword;
+
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
@@ -41,7 +43,7 @@ public class SwiggyOrderItems extends utility.Base{
 
 	static SwiggyLandingPage slp ;
  	static SwiggyRestarurantsPage srp ;
- 	 SwiggyOrderPage sop ;
+ 	SwiggyOrderPage sop ;
  	SwiggyTopNavigationMenu snm;
  	SwiggyCheckoutPage scp;
  	Base bfl;
@@ -52,7 +54,7 @@ public class SwiggyOrderItems extends utility.Base{
  	
 @Given("^user has entered (.+) on landing page$")	
 public void user_has_entered_on_landing_page(String location) throws Throwable {
-	       
+	scenarioDef.createNode(new GherkinKeyword("Given"),"user has entered on landing page");
 			driver.get("https://www.swiggy.com/");
 		 	SwiggyLandingPage slp = new SwiggyLandingPage(driver);
 		 	Thread.sleep(2000);
@@ -63,16 +65,18 @@ public void user_has_entered_on_landing_page(String location) throws Throwable {
 		 	robot.keyRelease(KeyEvent.VK_DOWN);
 		 	robot.keyPress(KeyEvent.VK_ENTER);
 		 	robot.keyRelease(KeyEvent.VK_ENTER);
+		 	
 	    }
 @And("^user has enterd order page$")	
-public void user_has_enterd_order_page() {
+public void user_has_enterd_order_page() throws Throwable{
+	  scenarioDef.createNode(new GherkinKeyword("And"),"user has enterd order page");
 	   System.out.println("hello");
 	 }
 
 @And("^user has selected (.+) from page$")	 
 public void user_has_selected_from_page(String restaurant) throws Throwable {
 		 SwiggyOrderPage sop = new SwiggyOrderPage(driver);
-		
+		 scenarioDef.createNode(new GherkinKeyword("And"),"User has selected restaurnt from page");
 		 Thread.sleep(4000);
 		 sop.getRestaurant(restaurant).click();
 	
@@ -107,18 +111,20 @@ public void user_clicks_on_add_button_of_an(String item) throws Throwable {
 				}
 			
 			sop.selectdItem = item;
+			scenarioDef.createNode(new GherkinKeyword("When"),"User clicks on add button of an item");
 			}
 
 
 
 
 @And("cart counter operator options are visible")
-public void cart_counter_operator_options_are_visible() {
+public void cart_counter_operator_options_are_visible() throws Throwable{
 	   System.out.println("to be implemented");
+	   scenarioDef.createNode(new GherkinKeyword("And"),"Cart counter operator options are visible");
 }
 
 @Then("verify item counter plus increases item count")
-public void verify_item_counter_plus_increases_item_count() throws InterruptedException {
+public void verify_item_counter_plus_increases_item_count() throws Throwable {
 	Thread.sleep(2000);
 	SwiggyOrderPage sop = new SwiggyOrderPage(driver);
 	int  numberOfClicks=4;
@@ -140,11 +146,13 @@ public void verify_item_counter_plus_increases_item_count() throws InterruptedEx
 	{
 		System.out.println("item plus counter  is working ");
 	}
+	scenarioDef.createNode(new GherkinKeyword("Then"),"verify item counter plus increases item count");
+	
 		
 }
 
 @And("verify item counter minus decreases item count")
-public void verify_item_counter_minus_decreases_item_count() throws InterruptedException {
+public void verify_item_counter_minus_decreases_item_count() throws Throwable {
 	sop = new SwiggyOrderPage(driver);
 	int  numberOfClicks=4;
 	
@@ -162,6 +170,7 @@ public void verify_item_counter_minus_decreases_item_count() throws InterruptedE
 	{
 		System.out.println("item minus counter  is working ");
 	}
+	scenarioDef.createNode(new GherkinKeyword("And"),"verify item counter minus decreases item count");
 }
 
 
@@ -172,6 +181,7 @@ public void user_has_no_items_added_to_cart() throws Throwable {
 	 int cartItemCount = Integer.valueOf(snm.navMenuCartCount.getText());
 	 
 	 Assert.assertTrue(cartItemCount==0);
+	 scenarioDef.createNode(new GherkinKeyword("And"),"user has no items added to cart");
 }
 
 @Then("^checkout option is visible$")
@@ -180,6 +190,7 @@ public void checkout_option_is_visible() throws Throwable {
 	
 		
 	Assert.assertTrue(Base.checkElementisVisible(sop.checkoutBtn));
+	 scenarioDef.createNode(new GherkinKeyword("Then"),"checkout option is visible");
 }
 
 @And("^user can proceed to checkout page$")
